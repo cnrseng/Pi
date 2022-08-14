@@ -1,16 +1,20 @@
 presubmits:
-- name: build-image
+- name: pull-Pi-build
   always_run: true
   decorate: true
+  path_alias: github.com/cnrseng/Pi
   labels:
     preset-dind-enabled: "true"
     preset-kind-volume-mounts: "true"
   spec:
     containers:
-    - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20220812-2d111f2c30-master
+    - image: registry.redhat.io/codeready-workspaces/stacks-cpp-rhel8:2.14-9
       securityContext:
         privileged: true
       command:
-      - runner.sh
+      - g++
       args:
-      - scripts/test-infra/build-image.sh
+      - "-fopenmp"
+      - "pi.c"
+      - "-o"
+      - "pi"
