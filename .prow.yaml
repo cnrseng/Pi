@@ -6,4 +6,4 @@ presubmits:
   spec:
     containers:
     - image: gcc
-      command: ["/bin/printenv"]
+      command: ["env"]
