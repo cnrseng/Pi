@@ -1,0 +1,16 @@
+presubmits:
+- name: build-image
+  always_run: true
+  decorate: true
+  labels:
+    preset-dind-enabled: "true"
+    preset-kind-volume-mounts: "true"
+  spec:
+    containers:
+    - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20220812-2d111f2c30-master
+      securityContext:
+        privileged: true
+      command:
+      - runner.sh
+      args:
+      - scripts/test-infra/build-image.sh
