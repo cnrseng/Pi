@@ -1,6 +1,5 @@
 presubmits:
 - name: test-presubmit
-  decorate: true
   always_run: true
   spec:
     containers:
