@@ -1,5 +1,5 @@
 presubmits:
-- name: build-image
+- name: build
   always_run: true
   decorate: true
   labels:
@@ -7,14 +7,13 @@ presubmits:
     preset-kind-volume-mounts: "true"
   spec:
     containers:
-    - image: gcr.io/k8s-staging-test-infra/kubekins-e2e:v20220812-2d111f2c30-master
+    - image: registry.redhat.io/codeready-workspaces/stacks-cpp-rhel8:2.14-9
       securityContext:
         privileged: true
       command:
-      - runner.sh
+      - g++ -fopenmp pi.c -o pi
       args:
-      - "docker"
-      - "build"
-      - "-t"
+      - "-fopenmp"
+      - "pi.c"
+      - "-o"
       - "pi"
-      - "."
