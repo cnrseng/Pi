@@ -12,9 +12,6 @@ presubmits:
       securityContext:
         privileged: true
       command:
-      - g++
+      - sleep
       args:
-      - "-fopenmp"
-      - "pi.c"
-      - "-o"
-      - "pi"
+      - "50"
