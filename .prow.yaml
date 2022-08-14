@@ -6,4 +6,4 @@ presubmits:
   spec:
     containers:
     - image: gcc
-      command: ["env"]
+      command: ["g++","-openmp","pi.c","-o","pi"]
