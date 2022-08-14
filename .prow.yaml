@@ -7,5 +7,5 @@ presubmits:
     - image: gcc
       securityContext:
         privileged: true
-      command: ["g++", "-fopenmp", "pi.c", "-o", "pi"]
+      command: ["g++","pi.c","-o","pi"]
       
