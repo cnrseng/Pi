@@ -13,4 +13,7 @@ presubmits:
       command:
       - runner.sh
       args:
-      - scripts/test-infra/build-image.sh
+      - "docker"
+      - "-t"
+      - "pi"
+      - "."
