@@ -8,6 +8,4 @@ presubmits:
       securityContext:
         privileged: true
       command:
-      - sleep
-      args:
-      - "50"
+      - g++
