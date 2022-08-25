@@ -5,3 +5,12 @@ presubmits:
     containers:
     - image: gcc
       command: ["g++","-openmp","pi.c","-o","pi"]
+postsubmits:
+- name: test-postsubmit
+  always_run: true
+  branches:
+    - ^main$
+  spec:
+    containers:
+      - image: quay.io/eduardoarango/pi:demo
+      command: ["pi","100"]
